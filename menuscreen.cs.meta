@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 0cb21198201be5c488365196a7c3f465
+timeCreated: 1442305299
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - myGUITexture: {instanceID: 0}
+  - alphasign: {instanceID: 0}
+  - skin: {fileID: 11400000, guid: 7bedc8559fa289f40ba98a863167f019, type: 2}
+  - mat: {instanceID: 0}
+  - start: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
