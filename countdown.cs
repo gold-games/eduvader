@@ -7,7 +7,7 @@ public class countdowntimer : MonoBehaviour {
 	string niceTime;
 	public static bool timeStarted = true;
 	 public float timeLeft = 600.0f;
-	
+	//goodluck;
 	void Update()
 	{
 		if (timeStarted == true) {
