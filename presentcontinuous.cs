@@ -8,6 +8,8 @@ public class presentcontinuous : MonoBehaviour
     public Transform target;
     AIzinnen ps;
     string presentcontinuous1;
+ string attempt;
+   // bool poging = false;
     // Use this for initialization
     void Start()
     {
@@ -27,11 +29,26 @@ public class presentcontinuous : MonoBehaviour
         // getPixelPos.x = Screen.width - getPixelPos.x;
         GUI.Label(new Rect(getPixelPos.x, getPixelPos.y + 00, 300f, 300f), presentcontinuous1);
     }
+   
     void OnCollisionEnter2D(Collision2D Collision)
     {
 
         GameObject.Destroy(Collision.gameObject);
         GameObject.Destroy(this.gameObject);
+        //attempt = presentcontinuous1;
+        //poging = true;
+        setattempt(presentcontinuous1);
+       
 
     }
+    void setattempt(string atwrd)
+    {
+            attempt = atwrd;
+    }
+
+    public string getAttempt()
+    {
+        return attempt;
+    }
+   
 }

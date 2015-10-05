@@ -12,6 +12,11 @@ public class AIzinnen : MonoBehaviour {
     string antwoord3;
     string antwoord4;
     string goed;
+    string attempt;
+    public GameObject pp;
+    public GameObject ps;
+    public GameObject prc;
+    public GameObject psc;
 
     void Awake () {
 		var doc = new XmlDocument(); // create an empty doc
@@ -49,6 +54,10 @@ public class AIzinnen : MonoBehaviour {
 		}
 		}
 	}
+    void Start()
+    {
+        prc = ()prc.GetComponent("presentcontinuous");
+    }
 
     public string pastsimple()
     {
@@ -74,12 +83,15 @@ public class AIzinnen : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        
+        attempt = getAttempt;
+
         if (goed == attempt)
         {
             Destroy(this.gameObject);
             Time.timeScale = 1;
         }
-        if ()
+       /* if ()
         {
             attempt = antwoord1;
         }
@@ -91,7 +103,7 @@ public class AIzinnen : MonoBehaviour {
         {
             attempt = antwoord3;
 
-        }
+        }*/
     }
     void OnGUI()
     {
