@@ -72,9 +72,27 @@ public class AIzinnen : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-	
-	}
+    void Update()
+    {
+        if (goed == attempt)
+        {
+            Destroy(this.gameObject);
+            Time.timeScale = 1;
+        }
+        if ()
+        {
+            attempt = antwoord1;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            attempt = antwoord2;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            attempt = antwoord3;
+
+        }
+    }
     void OnGUI()
     {
         Vector3 getPixelPos = Camera.main.WorldToScreenPoint(target.position);
