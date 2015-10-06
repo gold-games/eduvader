@@ -89,8 +89,8 @@ public class AIzinnen : MonoBehaviour {
     void Update()
     {
         //Debug.Log(getAttempt);
-        attempt = getAttempt;
-        Debug.Log(attempt);
+        //attempt = getAttempt;
+        //Debug.Log(attempt);
         if (goed == attempt)
         {
             Destroy(this.gameObject);

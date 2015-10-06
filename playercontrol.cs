@@ -33,9 +33,6 @@ public class playercontrol : MonoBehaviour {
             Instantiate(bullet, this.transform.position, Quaternion.identity);
             shots++;
         }
-      /*  else if (shots >= maxshots && Input.GetKeyDown(KeyCode.R))
-        {
-            shots = 0;
-        }*/
+    
     }
 }
