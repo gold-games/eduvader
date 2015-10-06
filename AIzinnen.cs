@@ -13,11 +13,17 @@ public class AIzinnen : MonoBehaviour {
     string antwoord4;
     string goed;
     string attempt;
+    string attempt1;
+    string attempt2;
+    string attempt3;
     public GameObject prp;
     public GameObject pas;
     public GameObject prec;
     public GameObject pasc;
     presentcontinuous prc;
+    presentperfect pp;
+    pastsimpel ps;
+    pastcontinuous pc;
     string getAttempt;
 
     void Awake () {
@@ -59,7 +65,10 @@ public class AIzinnen : MonoBehaviour {
     void Start()
     {
         prc = (presentcontinuous)prec.GetComponent("presentcontinuous");
-       // attempt = getAttempt;
+        pp = (presentperfect)prp.GetComponent("presentperfect");
+        ps = (pastsimpel)pas.GetComponent("pastsimpel");
+        pc = (pastcontinuous)pasc.GetComponent("pastcontinuous");
+        // attempt = getAttempt;
         //Debug.Log(getAttempt);
     }
 
@@ -88,10 +97,11 @@ public class AIzinnen : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(getAttempt);
-        //attempt = getAttempt;
-        //Debug.Log(attempt);
-        if (goed == attempt)
+        attempt = prc.getAttempt();
+        attempt1 = pp.getAttempt();
+        attempt2 = ps.getAttempt();
+        attempt3 = pc.getAttempt();
+        if (goed == attempt || goed == attempt2 || goed == attempt2 || goed == attempt3)
         {
             Destroy(this.gameObject);
             Time.timeScale = 1;

@@ -5,6 +5,7 @@ public class pastsimpel : MonoBehaviour {
     public GameObject zinvak;
     public Transform target;
     AIzinnen ps;
+    string attempt;
     string pastsimple;
     // Use this for initialization
     void Start () {
@@ -25,9 +26,24 @@ public class pastsimpel : MonoBehaviour {
     }
     void OnCollisionEnter2D(Collision2D Collision)
     {
-        
-            GameObject.Destroy(Collision.gameObject);
-            GameObject.Destroy(this.gameObject);
-        
+
+        GameObject.Destroy(Collision.gameObject);
+        //  GameObject.Destroy(this.gameObject);
+        //attempt = presentcontinuous1;
+        //poging = true;
+        setattempt(pastsimple);
+
+
+    }
+    void setattempt(string atwrd)
+    {
+        attempt = atwrd;
+        Debug.Log(attempt);
+    }
+
+    public string getAttempt()
+    {
+        Debug.Log(attempt);
+        return attempt;
     }
 }

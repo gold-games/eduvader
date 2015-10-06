@@ -6,6 +6,7 @@ public class pastcontinuous : MonoBehaviour {
     public GameObject zinvak;
     public Transform target;
     AIzinnen ps;
+    string attempt;
     string pastcontinuous1;
     // Use this for initialization
     void Start()
@@ -30,7 +31,22 @@ public class pastcontinuous : MonoBehaviour {
     {
 
         GameObject.Destroy(Collision.gameObject);
-        GameObject.Destroy(this.gameObject);
+        //  GameObject.Destroy(this.gameObject);
+        //attempt = presentcontinuous1;
+        //poging = true;
+        setattempt(pastcontinuous1);
 
+
+    }
+    void setattempt(string atwrd)
+    {
+        attempt = atwrd;
+        Debug.Log(attempt);
+    }
+
+    public string getAttempt()
+    {
+        Debug.Log(attempt);
+        return attempt;
     }
 }

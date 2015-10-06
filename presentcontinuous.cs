@@ -44,12 +44,12 @@ public class presentcontinuous : MonoBehaviour
     void setattempt(string atwrd)
     {
             attempt = atwrd;
-        //Debug.Log(attempt);
+        Debug.Log(attempt);
     }
 
     public string getAttempt()
     {
-       // Debug.Log(attempt);
+        Debug.Log(attempt);
         return attempt;
     }
    

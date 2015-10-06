@@ -6,6 +6,7 @@ public class presentperfect : MonoBehaviour {
     public Transform target;
     AIzinnen ps;
     string presentperfect1;
+    string attempt;
     // Use this for initialization
     void Start()
     {
@@ -29,7 +30,22 @@ public class presentperfect : MonoBehaviour {
     {
 
         GameObject.Destroy(Collision.gameObject);
-        GameObject.Destroy(this.gameObject);
+        //  GameObject.Destroy(this.gameObject);
+        //attempt = presentcontinuous1;
+        //poging = true;
+        setattempt(presentperfect1);
 
+
+    }
+    void setattempt(string atwrd)
+    {
+        attempt = atwrd;
+        Debug.Log(attempt);
+    }
+
+    public string getAttempt()
+    {
+        Debug.Log(attempt);
+        return attempt;
     }
 }
