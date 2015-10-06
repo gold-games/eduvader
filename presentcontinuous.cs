@@ -34,7 +34,7 @@ public class presentcontinuous : MonoBehaviour
     {
 
         GameObject.Destroy(Collision.gameObject);
-        GameObject.Destroy(this.gameObject);
+      //  GameObject.Destroy(this.gameObject);
         //attempt = presentcontinuous1;
         //poging = true;
         setattempt(presentcontinuous1);
@@ -44,10 +44,12 @@ public class presentcontinuous : MonoBehaviour
     void setattempt(string atwrd)
     {
             attempt = atwrd;
+        Debug.Log(attempt);
     }
 
     public string getAttempt()
     {
+        Debug.Log(attempt);
         return attempt;
     }
    

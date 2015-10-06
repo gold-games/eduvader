@@ -13,10 +13,12 @@ public class AIzinnen : MonoBehaviour {
     string antwoord4;
     string goed;
     string attempt;
-    public GameObject pp;
-    public GameObject ps;
-    public GameObject prc;
-    public GameObject psc;
+    public GameObject prp;
+    public GameObject pas;
+    public GameObject prec;
+    public GameObject pasc;
+    presentcontinuous prc;
+    string getAttempt;
 
     void Awake () {
 		var doc = new XmlDocument(); // create an empty doc
@@ -56,8 +58,11 @@ public class AIzinnen : MonoBehaviour {
 	}
     void Start()
     {
-        prc = ()prc.GetComponent("presentcontinuous");
+        prc = (presentcontinuous)prec.GetComponent("presentcontinuous");
+       // attempt = getAttempt;
+        //Debug.Log(getAttempt);
     }
+
 
     public string pastsimple()
     {
@@ -83,9 +88,9 @@ public class AIzinnen : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log(getAttempt);
         attempt = getAttempt;
-
+        Debug.Log(attempt);
         if (goed == attempt)
         {
             Destroy(this.gameObject);
