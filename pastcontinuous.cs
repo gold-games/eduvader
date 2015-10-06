@@ -8,11 +8,13 @@ public class pastcontinuous : MonoBehaviour {
     AIzinnen ps;
     string attempt;
     string pastcontinuous1;
+    
     // Use this for initialization
     void Start()
     {
         ps = (AIzinnen)zinvak.GetComponent("AIzinnen");
         pastcontinuous1 = ps.pastcontinuous();
+       
     }
 
     // Update is called once per frame

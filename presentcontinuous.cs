@@ -15,6 +15,7 @@ public class presentcontinuous : MonoBehaviour
     {
         ps = (AIzinnen)zinvak.GetComponent("AIzinnen");
         presentcontinuous1 = ps.presentcontinuous();
+        
     }
 
     // Update is called once per frame

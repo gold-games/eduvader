@@ -12,6 +12,7 @@ public class presentperfect : MonoBehaviour {
     {
         ps = (AIzinnen)zinvak.GetComponent("AIzinnen");
         presentperfect1 = ps.presentperfect();
+       
     }
 
     // Update is called once per frame

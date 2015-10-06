@@ -25,6 +25,7 @@ public class AIzinnen : MonoBehaviour {
     pastsimpel ps;
     pastcontinuous pc;
     string getAttempt;
+    int tries = 0;
 
     void Awake () {
 		var doc = new XmlDocument(); // create an empty doc
@@ -101,10 +102,29 @@ public class AIzinnen : MonoBehaviour {
         attempt1 = pp.getAttempt();
         attempt2 = ps.getAttempt();
         attempt3 = pc.getAttempt();
-        if (goed == attempt || goed == attempt2 || goed == attempt2 || goed == attempt3)
+        if(attempt != goed)
         {
-            Destroy(this.gameObject);
-            Time.timeScale = 1;
+            tries++;
+        }
+        if (attempt1 != goed)
+        {
+            tries++;
+        }
+        if (attempt2 != goed)
+        {
+            tries++;
+        }
+        if (attempt3 != goed)
+        {
+            tries++;
+        }
+        if (tries >= 3 )
+        {
+            if (goed == attempt || goed == attempt2 || goed == attempt2 || goed == attempt3)
+            {
+                Destroy(this.gameObject);
+                //Time.timeScale = 1;
+            }
         }
        /* if ()
         {

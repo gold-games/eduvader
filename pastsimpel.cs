@@ -7,10 +7,13 @@ public class pastsimpel : MonoBehaviour {
     AIzinnen ps;
     string attempt;
     string pastsimple;
+
     // Use this for initialization
     void Start () {
         ps = (AIzinnen)zinvak.GetComponent("AIzinnen");
+       
         pastsimple = ps.pastsimple();
+        
     }
 	
 	// Update is called once per frame
@@ -31,8 +34,8 @@ public class pastsimpel : MonoBehaviour {
         //  GameObject.Destroy(this.gameObject);
         //attempt = presentcontinuous1;
         //poging = true;
-        setattempt(pastsimple);
 
+        setattempt(pastsimple);
 
     }
     void setattempt(string atwrd)
