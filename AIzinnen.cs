@@ -13,12 +13,19 @@ public class AIzinnen : MonoBehaviour {
     string antwoord4;
     string goed;
     string attempt;
+    string attempt1;
+    string attempt2;
+    string attempt3;
     public GameObject prp;
     public GameObject pas;
     public GameObject prec;
     public GameObject pasc;
     presentcontinuous prc;
+    presentperfect pp;
+    pastsimpel ps;
+    pastcontinuous pc;
     string getAttempt;
+    int tries = 0;
 
     void Awake () {
 		var doc = new XmlDocument(); // create an empty doc
@@ -59,7 +66,10 @@ public class AIzinnen : MonoBehaviour {
     void Start()
     {
         prc = (presentcontinuous)prec.GetComponent("presentcontinuous");
-       // attempt = getAttempt;
+        pp = (presentperfect)prp.GetComponent("presentperfect");
+        ps = (pastsimpel)pas.GetComponent("pastsimpel");
+        pc = (pastcontinuous)pasc.GetComponent("pastcontinuous");
+        // attempt = getAttempt;
         //Debug.Log(getAttempt);
     }
 
@@ -88,14 +98,34 @@ public class AIzinnen : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(getAttempt);
-        attempt = getAttempt;
-        Debug.Log(attempt);
-        if (goed == attempt)
+        attempt = prc.getAttempt();
+        attempt1 = pp.getAttempt();
+        attempt2 = ps.getAttempt();
+        attempt3 = pc.getAttempt();
+       /* if(attempt != goed)
         {
-            Destroy(this.gameObject);
-            Time.timeScale = 1;
+            tries++;
         }
+        if (attempt1 != goed)
+        {
+            tries++;
+        }
+        if (attempt2 != goed)
+        {
+            tries++;
+        }
+        if (attempt3 != goed)
+        {
+            tries++;
+        }*/
+       // if (tries <= 3 )
+       // {
+            if (goed == attempt || goed == attempt2 || goed == attempt2 || goed == attempt3)
+            {
+                Destroy(this.gameObject);
+        
+            }
+       // }
        /* if ()
         {
             attempt = antwoord1;
@@ -115,7 +145,7 @@ public class AIzinnen : MonoBehaviour {
         Vector3 getPixelPos = Camera.main.WorldToScreenPoint(target.position);
         getPixelPos.y = Screen.height - getPixelPos.y;
        // getPixelPos.x = Screen.width - getPixelPos.x;
-        GUI.Label(new Rect(getPixelPos.x, getPixelPos.y + 00, 300f, 300f), vraag);
+        GUI.Label(new Rect(getPixelPos.x -60, getPixelPos.y+40 + 00, 300f, 300f), vraag);
        /* GUI.Label(new Rect(getPixelPos.x-150, getPixelPos.y +25, 250f, 250f), antwoord1);
         GUI.Label(new Rect(getPixelPos.x, getPixelPos.y+25, 200f, 200f), antwoord2);
         GUI.Label(new Rect(getPixelPos.x+150, getPixelPos.y+25, 150f, 150f), antwoord3);

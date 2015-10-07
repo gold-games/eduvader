@@ -6,6 +6,10 @@ public class playercontrol : MonoBehaviour {
     public GameObject bullet;
         int shots=0;
         int maxshots= 3;
+    public float Speed = 0f;
+    private float movex = 0f;
+    
+
     // Use this for initialization
     void Awake () {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -14,7 +18,7 @@ public class playercontrol : MonoBehaviour {
 	// Update is called once per frame
 
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+      /*  if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             Vector3 position = this.transform.position;
             position.x--;
@@ -25,7 +29,12 @@ public class playercontrol : MonoBehaviour {
             Vector3 position = this.transform.position;
             position.x++;
             this.transform.position = position;
-        }
+        }*/
+  
+        movex = Input.GetAxis("Horizontal");
+       
+        m_Rigidbody2D.velocity = new Vector2(movex * Speed, 0);
+    
        
 
         if (Input.GetKeyDown(KeyCode.Space) && shots < maxshots)
@@ -33,9 +42,6 @@ public class playercontrol : MonoBehaviour {
             Instantiate(bullet, this.transform.position, Quaternion.identity);
             shots++;
         }
-      /*  else if (shots >= maxshots && Input.GetKeyDown(KeyCode.R))
-        {
-            shots = 0;
-        }*/
+    
     }
 }
