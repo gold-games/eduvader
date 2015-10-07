@@ -25,7 +25,7 @@ public class pastsimpel : MonoBehaviour {
         Vector3 getPixelPos = Camera.main.WorldToScreenPoint(target.position);
         getPixelPos.y = Screen.height - getPixelPos.y;
         // getPixelPos.x = Screen.width - getPixelPos.x;
-        GUI.Label(new Rect(getPixelPos.x, getPixelPos.y + 00, 300f, 300f), pastsimple);
+        GUI.Label(new Rect(getPixelPos.x -30, getPixelPos.y - 55, 300f, 300f), pastsimple);
     }
     void OnCollisionEnter2D(Collision2D Collision)
     {

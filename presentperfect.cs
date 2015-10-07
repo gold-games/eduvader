@@ -25,7 +25,7 @@ public class presentperfect : MonoBehaviour {
         Vector3 getPixelPos = Camera.main.WorldToScreenPoint(target.position);
         getPixelPos.y = Screen.height - getPixelPos.y;
         // getPixelPos.x = Screen.width - getPixelPos.x;
-        GUI.Label(new Rect(getPixelPos.x, getPixelPos.y + 00, 300f, 300f), presentperfect1);
+        GUI.Label(new Rect(getPixelPos.x - 35, getPixelPos.y - 55, 300f, 300f), presentperfect1);
     }
     void OnCollisionEnter2D(Collision2D Collision)
     {

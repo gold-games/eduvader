@@ -102,7 +102,7 @@ public class AIzinnen : MonoBehaviour {
         attempt1 = pp.getAttempt();
         attempt2 = ps.getAttempt();
         attempt3 = pc.getAttempt();
-        if(attempt != goed)
+       /* if(attempt != goed)
         {
             tries++;
         }
@@ -117,15 +117,15 @@ public class AIzinnen : MonoBehaviour {
         if (attempt3 != goed)
         {
             tries++;
-        }
-        if (tries >= 3 )
-        {
+        }*/
+       // if (tries <= 3 )
+       // {
             if (goed == attempt || goed == attempt2 || goed == attempt2 || goed == attempt3)
             {
                 Destroy(this.gameObject);
-                //Time.timeScale = 1;
+        
             }
-        }
+       // }
        /* if ()
         {
             attempt = antwoord1;
@@ -145,7 +145,7 @@ public class AIzinnen : MonoBehaviour {
         Vector3 getPixelPos = Camera.main.WorldToScreenPoint(target.position);
         getPixelPos.y = Screen.height - getPixelPos.y;
        // getPixelPos.x = Screen.width - getPixelPos.x;
-        GUI.Label(new Rect(getPixelPos.x, getPixelPos.y + 00, 300f, 300f), vraag);
+        GUI.Label(new Rect(getPixelPos.x -60, getPixelPos.y+40 + 00, 300f, 300f), vraag);
        /* GUI.Label(new Rect(getPixelPos.x-150, getPixelPos.y +25, 250f, 250f), antwoord1);
         GUI.Label(new Rect(getPixelPos.x, getPixelPos.y+25, 200f, 200f), antwoord2);
         GUI.Label(new Rect(getPixelPos.x+150, getPixelPos.y+25, 150f, 150f), antwoord3);
