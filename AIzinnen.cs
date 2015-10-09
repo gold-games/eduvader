@@ -5,8 +5,9 @@ using System.Xml;
 
 public class AIzinnen : MonoBehaviour {
 
- //  public List<GameObject> wordList = new List<GameObject>();
-  
+    //  public List<GameObject> wordList = new List<GameObject>();
+    [SerializeField]
+    TextAsset questions;
     public Transform target;
     bool hit = false;
     string vraag;
@@ -25,17 +26,17 @@ public class AIzinnen : MonoBehaviour {
     int tries = 0;
 
     void Awake () {
-		var doc = new XmlDocument(); // create an empty doc
-		doc.Load("Assets/scripts/questions.xml");
-		var baseNode = doc.DocumentElement;// load the doc, dbPath is a string
+		XmlDocument doc = new XmlDocument(); // create an empty doc
+        doc.LoadXml(questions.text);
+        var baseNode = doc.DocumentElement;// load the doc, dbPath is a string
 		int nNodes = baseNode.ChildNodes.Count;
 		// Use this for initialization
 		var number = Random.Range (1, 10);
-		XmlNodeList xnList = doc.SelectNodes("/Questions/Question[@id='"+number+"' and @type='sp']");
+		XmlNodeList xnList = doc.SelectNodes("/Questions/Question[@id='"+number+"']");
 		while (!hit){
 		if (xnList.Count == 0) {
 		number = Random.Range (1, 10);
-		xnList = doc.SelectNodes("/Questions/Question[@id='"+number+"' and @type='sp']");
+		xnList = doc.SelectNodes("/Questions/Question[@id='"+number+"']");
 		} else {
 				hit = true;
 			}
