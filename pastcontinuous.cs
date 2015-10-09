@@ -32,7 +32,7 @@ public class pastcontinuous : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D Collision)
     {
 
-        GameObject.Destroy(Collision.gameObject);
+        Destroy(Collision.gameObject);
         //  GameObject.Destroy(this.gameObject);
         //attempt = presentcontinuous1;
         //poging = true;

@@ -1,21 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.Xml;
 
 public class AIzinnen : MonoBehaviour {
 
+    //  public List<GameObject> wordList = new List<GameObject>();
+    [SerializeField]
+    TextAsset questions;
     public Transform target;
     bool hit = false;
     string vraag;
-    string antwoord1;
-    string antwoord2;
-    string antwoord3;
-    string antwoord4;
+    string antwoord1, antwoord2, antwoord3, antwoord4;
     string goed;
-    string attempt;
-    string attempt1;
-    string attempt2;
-    string attempt3;
+    string attempt, attempt1, attempt2, attempt3;
     public GameObject prp;
     public GameObject pas;
     public GameObject prec;
@@ -28,17 +26,17 @@ public class AIzinnen : MonoBehaviour {
     int tries = 0;
 
     void Awake () {
-		var doc = new XmlDocument(); // create an empty doc
-		doc.Load("Assets/Resources/questions.xml");
-		var baseNode = doc.DocumentElement;// load the doc, dbPath is a string
+		XmlDocument doc = new XmlDocument(); // create an empty doc
+        doc.LoadXml(questions.text);
+        var baseNode = doc.DocumentElement;// load the doc, dbPath is a string
 		int nNodes = baseNode.ChildNodes.Count;
 		// Use this for initialization
-		var number = Random.Range (1, 5);
-		XmlNodeList xnList = doc.SelectNodes("/Questions/Question[@id='"+number+"' and @type='sp']");
+		var number = Random.Range (1, 10);
+		XmlNodeList xnList = doc.SelectNodes("/Questions/Question[@id='"+number+"']");
 		while (!hit){
 		if (xnList.Count == 0) {
-		number = Random.Range (1, 5);
-		xnList = doc.SelectNodes("/Questions/Question[@id='"+number+"' and @type='sp']");
+		number = Random.Range (1, 10);
+		xnList = doc.SelectNodes("/Questions/Question[@id='"+number+"']");
 		} else {
 				hit = true;
 			}
@@ -65,12 +63,18 @@ public class AIzinnen : MonoBehaviour {
 	}
     void Start()
     {
+        
+
         prc = (presentcontinuous)prec.GetComponent("presentcontinuous");
         pp = (presentperfect)prp.GetComponent("presentperfect");
         ps = (pastsimpel)pas.GetComponent("pastsimpel");
         pc = (pastcontinuous)pasc.GetComponent("pastcontinuous");
-        // attempt = getAttempt;
-        //Debug.Log(getAttempt);
+
+        /*wordList.Add( new GameObject ("presentcontinuous", ));
+        wordList.Add( new GameObject ("presentperfect", ));
+        wordList.Add( new GameObject ("pastsimple",antwoord1));
+        wordList.Add( new GameObject ("pastcontinuous",antwoord4));*/
+
     }
 
 
@@ -102,7 +106,7 @@ public class AIzinnen : MonoBehaviour {
         attempt1 = pp.getAttempt();
         attempt2 = ps.getAttempt();
         attempt3 = pc.getAttempt();
-       /* if(attempt != goed)
+     /*   if(attempt != goed)
         {
             tries++;
         }
@@ -119,36 +123,25 @@ public class AIzinnen : MonoBehaviour {
             tries++;
         }*/
        // if (tries <= 3 )
-       // {
+      //  {
             if (goed == attempt || goed == attempt2 || goed == attempt2 || goed == attempt3)
             {
                 Destroy(this.gameObject);
         
             }
-       // }
-       /* if ()
-        {
-            attempt = antwoord1;
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            attempt = antwoord2;
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            attempt = antwoord3;
-
-        }*/
+      // }
+     
     }
+    
+
     void OnGUI()
     {
         Vector3 getPixelPos = Camera.main.WorldToScreenPoint(target.position);
         getPixelPos.y = Screen.height - getPixelPos.y;
-       // getPixelPos.x = Screen.width - getPixelPos.x;
-        GUI.Label(new Rect(getPixelPos.x -60, getPixelPos.y+40 + 00, 300f, 300f), vraag);
-       /* GUI.Label(new Rect(getPixelPos.x-150, getPixelPos.y +25, 250f, 250f), antwoord1);
-        GUI.Label(new Rect(getPixelPos.x, getPixelPos.y+25, 200f, 200f), antwoord2);
-        GUI.Label(new Rect(getPixelPos.x+150, getPixelPos.y+25, 150f, 150f), antwoord3);
-        GUI.Label(new Rect(getPixelPos.x+300, getPixelPos.y+25, 100f, 100f), antwoord4);*/
+  
+        GUI.Label(new Rect(getPixelPos.x +50, getPixelPos.y - 235, 300f, 300f), vraag);
+     
     }
+
+  
 }
