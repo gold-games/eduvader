@@ -106,30 +106,13 @@ public class AIzinnen : MonoBehaviour {
         attempt1 = pp.getAttempt();
         attempt2 = ps.getAttempt();
         attempt3 = pc.getAttempt();
-     /*   if(attempt != goed)
-        {
-            tries++;
-        }
-        if (attempt1 != goed)
-        {
-            tries++;
-        }
-        if (attempt2 != goed)
-        {
-            tries++;
-        }
-        if (attempt3 != goed)
-        {
-            tries++;
-        }*/
-       // if (tries <= 3 )
-      //  {
-            if (goed == attempt || goed == attempt2 || goed == attempt2 || goed == attempt3)
+   
+            if (goed == attempt || goed == attempt1 || goed == attempt2 || goed == attempt3)
             {
                 Destroy(this.gameObject);
         
             }
-      // }
+      
      
     }
     

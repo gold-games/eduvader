@@ -171,20 +171,15 @@ public class menuscreen : MonoBehaviour {
 	void MainPauseMenu() {
 		BeginPage(200,200);
 
-		if (GUILayout.Button ("Singleplayer")) {
-			Application.LoadLevel("SP");
+		if (GUILayout.Button ("Play")) {
+			Application.LoadLevel("level1");
 			
 		}
-		if (GUILayout.Button ("Local Multiplayer")) {
-			Application.LoadLevel("LMP");
-			
-		}
+	
 		if (GUILayout.Button ("Options")) {
 			currentPage = Page.Options;
 		}
-		if (GUILayout.Button ("Credits")) {
-			currentPage = Page.Credits;
-		}
+		
 		
 		if (GUILayout.Button ("Exit")) {
 			Application.Quit ();
