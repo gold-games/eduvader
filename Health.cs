@@ -24,8 +24,8 @@ public class Health : MonoBehaviour {
 		}
 	void Start()
 	{
-		SetMaxHealth (100);
-		ModifyHealth (100);
+		SetMaxHealth (5);
+		ModifyHealth (5);
 	
 	}
 }

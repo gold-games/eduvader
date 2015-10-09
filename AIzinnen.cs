@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Xml;
 
 public class AIzinnen : MonoBehaviour {
-
+    public string levelToLoad = "";
     //  public List<GameObject> wordList = new List<GameObject>();
     [SerializeField]
     TextAsset questions;
     public Transform target;
+    public GameObject zinvak;
     bool hit = false;
     string vraag;
     string antwoord1, antwoord2, antwoord3, antwoord4;
@@ -70,6 +71,7 @@ public class AIzinnen : MonoBehaviour {
         ps = (pastsimpel)pas.GetComponent("pastsimpel");
         pc = (pastcontinuous)pasc.GetComponent("pastcontinuous");
 
+        Health eh= (Health)zinvak.GetComponent("Health");
         /*wordList.Add( new GameObject ("presentcontinuous", ));
         wordList.Add( new GameObject ("presentperfect", ));
         wordList.Add( new GameObject ("pastsimple",antwoord1));
@@ -106,12 +108,20 @@ public class AIzinnen : MonoBehaviour {
         attempt1 = pp.getAttempt();
         attempt2 = ps.getAttempt();
         attempt3 = pc.getAttempt();
-   
+        if (attempt != null || attempt1 != null || attempt2 != null || attempt3 != null)
+        {
             if (goed == attempt || goed == attempt1 || goed == attempt2 || goed == attempt3)
             {
-                Destroy(this.gameObject);
-        
+
+                Application.LoadLevel(levelToLoad);
+
             }
+            else if (goed != attempt || goed != attempt1 || goed != attempt2 || goed != attempt3)
+            {
+                Health eh = (Health)zinvak.GetComponent("Health");
+                eh.ModifyHealth(-1);
+            }
+        }
       
      
     }
