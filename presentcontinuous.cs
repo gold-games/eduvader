@@ -38,6 +38,7 @@ public class presentcontinuous : MonoBehaviour
       //  GameObject.Destroy(this.gameObject);
         //attempt = presentcontinuous1;
         //poging = true;
+       
         setattempt(presentcontinuous1);
        
 

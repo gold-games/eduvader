@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<Questions>
+<Question id="1" type="sp">
+	<type>simple past</type>
+	<text>Yesterday I walked to the store.</text>
+	<original>Past Simple</original>
+	<option1>past simple</option1>
+	<option2>present perfect</option2>
+  	<option3>present continuous</option3>
+ 	<option4>past continuous</option4>
+	<answer>past simple</answer>
+</Question>
+<Question id="2" type="sp">
+	<type >simple past</type>
+	<text>Some time ago I showed you my house.</text>
+	<original>watch</original>
+	<option1>past simple</option1>
+	<option2>present perfect</option2>
+  	<option3>present continuous</option3>
+ 	<option4>past continuous</option4>
+	<answer>past simple</answer>
+</Question>
+  <Question id="3" type="sp">
+    <type >simple past</type>
+    <text>Last time I was here, I saw a dog.</text>
+    <original>watch</original>
+    <option1>past simple</option1>
+    <option2>present perfect</option2>
+    <option3>present continuous</option3>
+    <option4>past continuous</option4>
+    <answer>past simple</answer>
+  </Question>
+<Question id="4" type="pp">
+	<type>present perfect</type>
+	<text>She has never seen the Big Ben before.</text>
+	<original>burn</original>
+	<option1>past simple</option1>
+	<option2>present perfect</option2>
+  	<option3>present continuous</option3>
+ 	<option4>past continuous</option4>
+	<answer>present perfect</answer>
+</Question>
+  <Question id="5" type="pp">
+    <type>present perfect</type>
+    <text>We have been walking to the store three times now.</text>
+    <original>burn</original>
+    <option1>past simple</option1>
+    <option2>present perfect</option2>
+    <option3>present continuous</option3>
+    <option4>past continuous</option4>
+    <answer>present perfect</answer>
+  </Question>
+  <Question id="6" type="pp">
+    <type>present perfect</type>
+    <text>They have been talking about this the whole week.</text>
+    <original>burn</original>
+    <option1>past simple</option1>
+    <option2>present perfect</option2>
+    <option3>present continuous</option3>
+    <option4>past continuous</option4>
+    <answer>present perfect</answer>
+  </Question>
+<Question id="7" type="pc">
+	<type>present continuous</type>
+	<text>He is singing.</text>
+	<original>crash</original>
+	<option1>past simple</option1>
+	<option2>present perfect</option2>
+  	<option3>present continuous</option3>
+ 	<option4>past continuous</option4>
+	<answer>present continuous</answer>
+</Question>
+  <Question id="8" type="pc">
+    <type>present continuous</type>
+    <text>They are watching TV.</text>
+    <original>crash</original>
+    <option1>past simple</option1>
+    <option2>present perfect</option2>
+    <option3>present continuous</option3>
+    <option4>past continuous</option4>
+    <answer>present continuous</answer>
+  </Question>
+<Question id="9"  type="pac">
+		<type>past continuous</type>
+		<text>I was reading the newspaper.</text>
+		<original>h</original>
+			<option1>past simple</option1>
+	<option2>present perfect</option2>
+  	<option3>present continuous</option3>
+ 	<option4>past continuous</option4>
+			<answer>past continuous</answer>
+	</Question>
+  <Question id="10"  type="pac">
+    <type>past continuous</type>
+    <text>We were having dinner.</text>
+    <original>h</original>
+    <option1>past simple</option1>
+    <option2>present perfect</option2>
+    <option3>present continuous</option3>
+    <option4>past continuous</option4>
+    <answer>past continuous</answer>
+  </Question>
+</Questions>
