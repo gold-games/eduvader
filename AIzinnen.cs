@@ -138,7 +138,7 @@ public class AIzinnen : MonoBehaviour {
         Vector3 getPixelPos = Camera.main.WorldToScreenPoint(target.position);
         getPixelPos.y = Screen.height - getPixelPos.y;
   
-        GUI.Label(new Rect(getPixelPos.x -60, getPixelPos.y+40 + 00, 300f, 300f), vraag);
+        GUI.Label(new Rect(getPixelPos.x +50, getPixelPos.y - 235, 300f, 300f), vraag);
      
     }
 
