@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class presentperfect : MonoBehaviour {
+public class presentperfect : MonoBehaviour
+{
     public GameObject zinvak;
     public Transform target;
     AIzinnen ps;
@@ -12,7 +13,7 @@ public class presentperfect : MonoBehaviour {
     {
         ps = (AIzinnen)zinvak.GetComponent("AIzinnen");
         presentperfect1 = ps.presentperfect();
-       
+
     }
 
     // Update is called once per frame
@@ -38,7 +39,7 @@ public class presentperfect : MonoBehaviour {
 
 
     }
-    void setattempt(string atwrd)
+    public void setattempt(string atwrd)
     {
         attempt = atwrd;
         Debug.Log(attempt);
@@ -48,5 +49,6 @@ public class presentperfect : MonoBehaviour {
     {
         Debug.Log(attempt);
         return attempt;
+
     }
 }

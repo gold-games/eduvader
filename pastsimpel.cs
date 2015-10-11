@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class pastsimpel : MonoBehaviour {
+public class pastsimpel : MonoBehaviour
+{
     public GameObject zinvak;
     public Transform target;
     AIzinnen ps;
@@ -9,23 +10,25 @@ public class pastsimpel : MonoBehaviour {
     string pastsimple;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         ps = (AIzinnen)zinvak.GetComponent("AIzinnen");
-       
+
         pastsimple = ps.pastsimple();
-        
+
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
     void OnGUI()
     {
         Vector3 getPixelPos = Camera.main.WorldToScreenPoint(target.position);
         getPixelPos.y = Screen.height - getPixelPos.y;
         // getPixelPos.x = Screen.width - getPixelPos.x;
-        GUI.Label(new Rect(getPixelPos.x -30, getPixelPos.y - 55, 300f, 300f), pastsimple);
+        GUI.Label(new Rect(getPixelPos.x - 30, getPixelPos.y - 55, 300f, 300f), pastsimple);
     }
     void OnCollisionEnter2D(Collision2D Collision)
     {
@@ -38,7 +41,7 @@ public class pastsimpel : MonoBehaviour {
         setattempt(pastsimple);
 
     }
-    void setattempt(string atwrd)
+    public void setattempt(string atwrd)
     {
         attempt = atwrd;
         Debug.Log(attempt);
