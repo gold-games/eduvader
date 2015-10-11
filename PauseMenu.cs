@@ -8,8 +8,8 @@ public class PauseMenu : MonoBehaviour {
 		
 		private float gldepth = -0.5f;
 		private float startTime = 0.1f;
-		
-		public Material mat;
+    private float savedTimeScale;
+    public Material mat;
 		
 		public GameObject start;
 		
@@ -159,15 +159,11 @@ public class PauseMenu : MonoBehaviour {
 			if (GUILayout.Button ("Options")) {
 				currentPage = Page.Options;
 			}
-			if (GUILayout.Button ("Credits")) {
-				currentPage = Page.Credits;
-			}
-			if (IsBrowser() && !IsBeginning() && GUILayout.Button ("Restart")) {
-				Application.OpenURL(url);
-			}
+			
+		
         if (GUILayout.Button("Main Menu"))
         {
-            Application.LoadLevel("menu");
+            Application.LoadLevel("menuscreen");
 
         }
 
@@ -180,7 +176,7 @@ public class PauseMenu : MonoBehaviour {
 	
 		
 		void PauseGame() {
-			//savedTimeScale = Time.timeScale;
+			savedTimeScale = Time.timeScale;
 			Time.timeScale = 0;
 			AudioListener.pause = true;
 			//if (pauseFilter) 
@@ -189,7 +185,7 @@ public class PauseMenu : MonoBehaviour {
 		}
 		
 		void UnPauseGame() {
-			//Time.timeScale = savedTimeScale;
+			Time.timeScale = savedTimeScale;
 			AudioListener.pause = false;
 			//if (pauseFilter) 
 			//	pauseFilter.enabled = false;

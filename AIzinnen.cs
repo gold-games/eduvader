@@ -3,77 +3,86 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 
-public class AIzinnen : MonoBehaviour {
-
+public class AIzinnen : MonoBehaviour
+{
+    //LEER GOED CODEREN!!!! ohja, en commenten.... begrijp je code... vraag Djurdjus om betere uitleg.
+   
     //  public List<GameObject> wordList = new List<GameObject>();
     [SerializeField]
     TextAsset questions;
     public Transform target;
-    bool hit = false;
-    string vraag;
-    string antwoord1, antwoord2, antwoord3, antwoord4;
-    string goed;
-    string attempt, attempt1, attempt2, attempt3;
+
+    public GameObject zinvak;
     public GameObject prp;
     public GameObject pas;
     public GameObject prec;
     public GameObject pasc;
+    bool hit = false;
+    bool next = true;
+    bool correct = false;
+    string vraag;
+    public string levelToLoad = "";
+    string antwoord1, antwoord2, antwoord3, antwoord4;
+    string goed;
+    string attempt4, attempt1, attempt2, attempt3;
+    string getAttempt;
+    int number;
+    int tries = 0;
+    XmlDocument doc = new XmlDocument(); // create an empty doc
+    XmlNodeList xnList;
     presentcontinuous prc;
     presentperfect pp;
     pastsimpel ps;
     pastcontinuous pc;
-    string getAttempt;
-    int tries = 0;
 
-    void Awake () {
-		XmlDocument doc = new XmlDocument(); // create an empty doc
+
+
+    //XmlDocument doc;
+    void Awake()
+    {
+
         doc.LoadXml(questions.text);
-        var baseNode = doc.DocumentElement;// load the doc, dbPath is a string
-		int nNodes = baseNode.ChildNodes.Count;
-		// Use this for initialization
-		var number = Random.Range (1, 10);
-		XmlNodeList xnList = doc.SelectNodes("/Questions/Question[@id='"+number+"']");
-		while (!hit){
-		if (xnList.Count == 0) {
-		number = Random.Range (1, 10);
-		xnList = doc.SelectNodes("/Questions/Question[@id='"+number+"']");
-		} else {
-				hit = true;
-			}
-		if (hit) {
-			foreach (XmlNode node in xnList) {
-			       /*Debug.Log(node.Name);
-                   Debug.Log(node.SelectSingleNode("text").InnerText);
-                   Debug.Log(node.SelectSingleNode("option1").InnerText);
-                   Debug.Log(node.SelectSingleNode("option2").InnerText);
-                   Debug.Log(node.SelectSingleNode("option3").InnerText);
-                   Debug.Log(node.SelectSingleNode("option4").InnerText);
-                   Debug.Log(node.SelectSingleNode("answer").InnerText);*/
-                    vraag = (node.SelectSingleNode ("text").InnerText);
-				antwoord1 = (node.SelectSingleNode ("option1").InnerText);
-                antwoord2 = (node.SelectSingleNode ("option2").InnerText);
-                antwoord3 = (node.SelectSingleNode ("option3").InnerText);
-                antwoord4 = (node.SelectSingleNode("option4").InnerText);
-                     goed = (node.SelectSingleNode ("answer").InnerText);
-                    Debug.Log(antwoord1);
-
+        XmlNode baseNode = doc.DocumentElement;// load the doc, dbPath is a string
+        int nNodes = baseNode.ChildNodes.Count;
+        // Use this for initialization
+        number = Random.Range(1, 10);
+        xnList = doc.SelectNodes("/Questions/Question[@id='" + number + "']");
+        while (!hit)
+        {
+            if (xnList.Count == 0)
+            {
+                number = Random.Range(1, 10);
+                xnList = doc.SelectNodes("/Questions/Question[@id='" + number + "']");
+            }
+            else
+            {
+                hit = true;
+            }
+            if (hit)
+            {
+                foreach (XmlNode node in xnList)
+                {
+                    vraag = (node.SelectSingleNode("text").InnerText);
+                    antwoord1 = (node.SelectSingleNode("option1").InnerText);
+                    antwoord2 = (node.SelectSingleNode("option2").InnerText);
+                    antwoord3 = (node.SelectSingleNode("option3").InnerText);
+                    antwoord4 = (node.SelectSingleNode("option4").InnerText);
+                    goed = (node.SelectSingleNode("answer").InnerText);
                 }
-		}
-		}
-	}
+            }
+        }
+    }
     void Start()
     {
-        
+
 
         prc = (presentcontinuous)prec.GetComponent("presentcontinuous");
         pp = (presentperfect)prp.GetComponent("presentperfect");
         ps = (pastsimpel)pas.GetComponent("pastsimpel");
         pc = (pastcontinuous)pasc.GetComponent("pastcontinuous");
 
-        /*wordList.Add( new GameObject ("presentcontinuous", ));
-        wordList.Add( new GameObject ("presentperfect", ));
-        wordList.Add( new GameObject ("pastsimple",antwoord1));
-        wordList.Add( new GameObject ("pastcontinuous",antwoord4));*/
+        Health eh = (Health)zinvak.GetComponent("Health");
+
 
     }
 
@@ -102,46 +111,102 @@ public class AIzinnen : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        attempt = prc.getAttempt();
-        attempt1 = pp.getAttempt();
-        attempt2 = ps.getAttempt();
-        attempt3 = pc.getAttempt();
-     /*   if(attempt != goed)
+        if (next)
         {
-            tries++;
+            NewQuestion();
+           
         }
-        if (attempt1 != goed)
+        attempt3 = prc.getAttempt();
+        attempt2 = pp.getAttempt();
+        attempt1 = ps.getAttempt();
+        attempt4 = pc.getAttempt();
+        if (!correct)
         {
-            tries++;
-        }
-        if (attempt2 != goed)
-        {
-            tries++;
-        }
-        if (attempt3 != goed)
-        {
-            tries++;
-        }*/
-       // if (tries <= 3 )
-      //  {
-            if (goed == attempt || goed == attempt2 || goed == attempt2 || goed == attempt3)
+            if (attempt4 != null || attempt1 != null || attempt2 != null || attempt3 != null)
             {
-                Destroy(this.gameObject);
-        
+                if (goed == attempt3 || goed == attempt1 || goed == attempt2 || goed == attempt4)
+                {
+                   
+                    next = true;
+                    correct = true;
+                    Debug.Log("NewQuestion");
+
+                }
+                else if (goed != attempt4 && goed != attempt1 && goed != attempt2 && goed != attempt3)
+                {
+                    Health eh = (Health)zinvak.GetComponent("Health");
+                    eh.ModifyHealth(-1);
+                     next = true;
+                    
+                    correct = true;
+                       if(eh.currentHealth == 0)
+                   {
+                       Application.LoadLevel(levelToLoad);
+                   }
+                   
+                }
+
             }
-      // }
-     
+
+
+        }
+
+
     }
-    
+    /**/
+    void NewQuestion()
+    {
+        Debug.Log("HELP ME");
+        while (!hit)
+        {
+            Debug.Log("not hit");
+            number = Random.Range(1, 10);
+            xnList = doc.SelectNodes("/Questions/Question[@id='" + number + "']");
+            if (xnList.Count == 0)
+            {
+                hit = false;
+                Debug.Log("no question");
+            }
+            else
+            {
+                Debug.Log("got question");
+                hit = true;
+            }
+            if (hit)
+            {
+                foreach (XmlNode node in xnList)
+                {
+                    vraag = (node.SelectSingleNode("text").InnerText);
+                    antwoord1 = (node.SelectSingleNode("option1").InnerText);
+                    antwoord2 = (node.SelectSingleNode("option2").InnerText);
+                    antwoord3 = (node.SelectSingleNode("option3").InnerText);
+                    antwoord4 = (node.SelectSingleNode("option4").InnerText);
+                    goed = (node.SelectSingleNode("answer").InnerText);
+                    Debug.Log("change text");
+                }
+            }
+        }
+        next = false;
+        hit = false;
+        correct = false;
+        attempt3 = null;
+        attempt1 = null;
+        attempt2 = null;
+        attempt4 = null;
+        pp.setattempt(null);
+        prc.setattempt(null);
+        ps.setattempt(null);
+        pc.setattempt(null);
+    }
 
     void OnGUI()
     {
         Vector3 getPixelPos = Camera.main.WorldToScreenPoint(target.position);
         getPixelPos.y = Screen.height - getPixelPos.y;
-  
-        GUI.Label(new Rect(getPixelPos.x +50, getPixelPos.y - 235, 300f, 300f), vraag);
-     
+
+        GUI.Label(new Rect(getPixelPos.x + 50, getPixelPos.y - 235, 300f, 300f), vraag);
+
     }
 
-  
+
 }

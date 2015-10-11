@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class pastcontinuous : MonoBehaviour {
+public class pastcontinuous : MonoBehaviour
+{
 
     public GameObject zinvak;
     public Transform target;
     AIzinnen ps;
     string attempt;
     string pastcontinuous1;
-    
+
     // Use this for initialization
     void Start()
     {
         ps = (AIzinnen)zinvak.GetComponent("AIzinnen");
         pastcontinuous1 = ps.pastcontinuous();
-       
+
     }
 
     // Update is called once per frame
@@ -40,7 +41,7 @@ public class pastcontinuous : MonoBehaviour {
 
 
     }
-    void setattempt(string atwrd)
+    public void setattempt(string atwrd)
     {
         attempt = atwrd;
         Debug.Log(attempt);
