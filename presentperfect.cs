@@ -28,7 +28,7 @@ public class presentperfect : MonoBehaviour
         // getPixelPos.x = Screen.width - getPixelPos.x;
         GUI.Label(new Rect(getPixelPos.x - 35, getPixelPos.y - 55, 300f, 300f), presentperfect1);
     }
-    void OnCollisionEnter2D(Collision2D Collision)
+    void OnCollisionEnter(Collision Collision)
     {
 
         GameObject.Destroy(Collision.gameObject);

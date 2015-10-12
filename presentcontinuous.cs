@@ -31,7 +31,7 @@ public class presentcontinuous : MonoBehaviour
         GUI.Label(new Rect(getPixelPos.x - 50, getPixelPos.y - 55, 300f, 300f), presentcontinuous1);
     }
 
-    void OnCollisionEnter2D(Collision2D Collision)
+    void OnCollisionEnter(Collision Collision)
     {
 
         GameObject.Destroy(Collision.gameObject);
