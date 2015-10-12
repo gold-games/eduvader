@@ -57,7 +57,7 @@ public class playercontrol : MonoBehaviour {
             anim.SetBool("throwing", true);
             Instantiate(bullet, this.transform.position, Quaternion.identity);
         }
-        else
+        else if(Input.GetKeyUp(KeyCode.Space))
         {
             anim.SetBool("throwing", false);
         }
