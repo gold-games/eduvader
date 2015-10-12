@@ -30,7 +30,7 @@ public class pastsimpel : MonoBehaviour
         // getPixelPos.x = Screen.width - getPixelPos.x;
         GUI.Label(new Rect(getPixelPos.x - 30, getPixelPos.y - 55, 300f, 300f), pastsimple);
     }
-    void OnCollisionEnter2D(Collision2D Collision)
+    void OnCollisionEnter(Collision Collision)
     {
 
         GameObject.Destroy(Collision.gameObject);

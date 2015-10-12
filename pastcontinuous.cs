@@ -30,7 +30,7 @@ public class pastcontinuous : MonoBehaviour
         // getPixelPos.x = Screen.width - getPixelPos.x;
         GUI.Label(new Rect(getPixelPos.x - 40, getPixelPos.y - 55, 300f, 300f), pastcontinuous1);
     }
-    void OnCollisionEnter2D(Collision2D Collision)
+    void OnCollisionEnter(Collision Collision)
     {
 
         Destroy(Collision.gameObject);

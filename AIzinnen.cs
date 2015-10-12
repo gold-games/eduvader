@@ -11,7 +11,7 @@ public class AIzinnen : MonoBehaviour
     [SerializeField]
     TextAsset questions;
     public Transform target;
-
+    public GameObject volcano;
     public GameObject zinvak;
     public GameObject prp;
     public GameObject pas;
@@ -81,7 +81,7 @@ public class AIzinnen : MonoBehaviour
         ps = (pastsimpel)pas.GetComponent("pastsimpel");
         pc = (pastcontinuous)pasc.GetComponent("pastcontinuous");
 
-        Health eh = (Health)zinvak.GetComponent("Health");
+        Health eh = (Health)volcano.GetComponent("Health");
 
 
     }
@@ -134,7 +134,7 @@ public class AIzinnen : MonoBehaviour
                 }
                 else if (goed != attempt4 && goed != attempt1 && goed != attempt2 && goed != attempt3)
                 {
-                    Health eh = (Health)zinvak.GetComponent("Health");
+                    Health eh = (Health)volcano.GetComponent("Health");
                     eh.ModifyHealth(-1);
                      next = true;
                     
